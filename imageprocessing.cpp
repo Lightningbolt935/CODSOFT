@@ -9,22 +9,22 @@ int main() {
     cout << "Enter image path: ";
     cin >> imagePath;
 
-    // Load image
+    //To load the image this block of code will help us
     Mat image = imread(imagePath);
     if (image.empty()) {
-        cout << "❌ Failed to load image." << endl;
+        cout << " Failed to load image, please try again later." << endl;
         return -1;
     }
 
-    // Display original image
+    //To display the original image
     imshow("Original Image", image);
 
-    // Convert to grayscale
+    // To convert it to grayscale
     Mat gray;
     cvtColor(image, gray, COLOR_BGR2GRAY);
     imwrite("output_gray.jpg", gray);
 
-    // Resize image
+    // To resize the image
     Mat resized;
     resize(image, resized, Size(300, 300));
     imwrite("output_resized.jpg", resized);
@@ -39,7 +39,7 @@ int main() {
     GaussianBlur(image, blurred, Size(7, 7), 0);
     imwrite("output_blurred.jpg", blurred);
 
-    cout << "✅ Image processing completed. Check saved images.\n";
+    cout << "Image processing completed. Check saved images.\n";
 
     waitKey(0);
     return 0;
